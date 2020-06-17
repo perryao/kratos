@@ -77,6 +77,8 @@ func (c ConfigurationCollection) Provider(id string, public *url.URL) (Provider,
 				return NewProviderGitHub(&p, public), nil
 			case "microsoft":
 				return NewProviderMicrosoft(&p, public), nil
+			case "gitlab":
+				return NewProviderGitLab(&p, public), nil
 			}
 			return nil, errors.Errorf("provider type %s is not supported, supported are: %v", p.Provider, []string{"generic", "google", "github", "microsoft"})
 		}
